@@ -83,7 +83,33 @@ client.on("ready", function() {
 });
 
 client.on('message', msg => {
-    if (queueData.ETA.includes())
+    if (queueData.ETA.includes('30m'))
+        msg.channel.send({
+            embed: {
+                color: 3447003,
+                author: {
+                    name: client.user.username,
+                    icon_url: client.user.avatarURL
+                },
+                title: "2bored2wait discord bridge",
+                //url: "http://google.com",
+                description: "@everyone Start and stop the queue from discord!",
+                fields: [{
+                        name: "Position",
+                        value: `You are in position **${queueData.place}**.`
+                    },
+                    {
+                        name: "ETA",
+                        value: `Estimated time until login: **${queueData.ETA}**`
+                    }
+                ],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: "Author: Surprisejedi"
+                }
+            }
+        });
 
 client.on('message', msg => {
 
