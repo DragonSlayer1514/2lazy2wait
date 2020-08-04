@@ -51,6 +51,40 @@ client.on('ready', () => {
     setDiscordActivity("Not queueing.")
 })
 
+client.on("ready", function() {
+    setInterval(function() {
+        msg.channel.send({
+            embed: {
+                color: 3447003,
+                author: {
+                    name: client.user.username,
+                    icon_url: client.user.avatarURL
+                },
+                title: "2bored2wait discord bridge",
+                //url: "http://google.com",
+                description: "Start and stop the queue from discord!",
+                fields: [{
+                        name: "Position",
+                        value: `You are in position **${queueData.place}**.`
+                    },
+                    {
+                        name: "ETA",
+                        value: `Estimated time until login: **${queueData.ETA}**`
+                    }
+                ],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: "Author: Surprisejedi"
+                }
+            }
+        });
+    }, 10000) //in ms btw if you want to change
+});
+
+client.on('message', msg => {
+    if (queueData.ETA.includes())
+
 client.on('message', msg => {
 
     if (msg.content === 'update') {
