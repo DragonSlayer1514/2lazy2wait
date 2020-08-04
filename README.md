@@ -5,7 +5,8 @@ A discord implementation of the popular proxy to wait out 2b2t.org's way too lon
 
 # What i did i guesss
 1.constantly send messages every interval of seconds (idk just mute the sevrer if ya hate it)
-2.make it ping you when it it almost there
+
+2.make it ping you when it it almost there (30min ye)
 
 # How to install
 1. Download node.js and install it. On non-windows platforms, you also need npm.
