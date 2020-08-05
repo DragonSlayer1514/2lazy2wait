@@ -83,7 +83,7 @@ client.on("ready", function() {
 });
 
 client.on('message', msg => {
-    if (queueData.ETA.includes('30m'))
+    if (queueData.ETA === '0h 30m')
         msg.channel.send({
             embed: {
                 color: 3447003,
@@ -91,9 +91,9 @@ client.on('message', msg => {
                     name: client.user.username,
                     icon_url: client.user.avatarURL
                 },
-                title: "2bored2wait discord bridge",
+                title: "@everyone 2bored2wait",
                 //url: "http://google.com",
-                description: "@everyone Start and stop the queue from discord!",
+                description: "Start and stop the queue from discord!",
                 fields: [{
                         name: "Position",
                         value: `You are in position **${queueData.place}**.`
