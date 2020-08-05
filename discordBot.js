@@ -54,12 +54,13 @@ client.on('ready', () => {
     setDiscordActivity("Not queueing.")
 })
 
-
-	client.on('ready', () => {
-		var channel = client.channels.find(channel => channel.id === '740342329973538858');
-			console.log("we in bois");
-					setInterval(() => {
-						channel.send({
+//for timed messages auto update
+client.on('ready', () => { 
+	var channel = client.channels.find(channel => channel.id === '740342329973538858');
+	console.log("we in bois");
+		setInterval(() => {
+			if (Started === "yes"){
+				channel.send({
 					embed: {
 						color: 3447003,
 						author: {
@@ -84,11 +85,10 @@ client.on('ready', () => {
 							text: "Author: Surprisejedi"
 						}
 					}
-				});
-				}, 10000);
-			
-			
-	});
+				})
+			}
+		}, 5000)//time in ms	
+});
 	
 
 client.on('message', msg => {
@@ -122,7 +122,8 @@ client.on('message', msg => {
         });
     }
     if (msg.content === "start") {
-		var Started = 'yes';
+		Started = "yes";
+		console.log(Started);
         var td = D.toLocaleTimeString();
         http.get("http://localhost/start")
         msg.channel.send({
@@ -152,7 +153,8 @@ client.on('message', msg => {
         setTimeout(update, 5 * 1000);
     }
     if (msg.content === "stop") {
-		var Started = 'no';
+		Started = "no";
+		console.log(Started);
         http.get("http://localhost/stop")
         setDiscordActivity("Not queueing.")
         msg.channel.send({
