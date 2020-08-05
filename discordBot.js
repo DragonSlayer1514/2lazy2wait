@@ -7,6 +7,7 @@ var queuing = require('./2bored2wait/main.js');
 var auth = require('./auth.json');
 var sleep = require('sleep');
 var Discord = require('discord.js');
+var Date = new Date();
 
 global.queueData = "";
 
@@ -83,7 +84,7 @@ client.on("ready", function() {
 });
 
 client.on('message', msg => {
-    if (queueData.ETA === '0h 30m')
+    if (queueData.place === '30')
         msg.channel.send({
             embed: {
                 color: 3447003,
@@ -153,7 +154,10 @@ client.on('message', msg => {
                 fields: [{
                         name: "Queue",
                         value: `Queue is starting up. Allow 15 seconds to update.`
-                    }
+                    },
+                    {
+                        name: "Time Started",
+                        value: `Started at **{d.toLocaleTimeString()}**`
                 ],
                 timestamp: new Date(),
                 footer: {
