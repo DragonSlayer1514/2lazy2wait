@@ -5,6 +5,7 @@ process.chdir("2bored2wait/")
 var http = require("http");
 var queuing = require('./2bored2wait/main.js');
 var auth = require('./auth.json');
+var sleep = require('sleep');
 var Discord = require('discord.js');
 var D = new Date();
 var Started = "no";
