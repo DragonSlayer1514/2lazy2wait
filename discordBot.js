@@ -5,9 +5,11 @@ process.chdir("2bored2wait/")
 var http = require("http");
 var queuing = require('./2bored2wait/main.js');
 var auth = require('./auth.json');
-var sleep = require('sleep');
 var Discord = require('discord.js');
 var D = new Date();
+var Started = "no";
+
+
 
 global.queueData = "";
 
@@ -53,6 +55,42 @@ client.on('ready', () => {
 })
 
 
+	client.on('ready', () => {
+		var channel = client.channels.find(channel => channel.id === '740342329973538858');
+			console.log("we in bois");
+					setInterval(() => {
+						channel.send({
+					embed: {
+						color: 3447003,
+						author: {
+							name: client.user.username,
+							icon_url: client.user.avatarURL
+						},
+						title: "2b2t Queue =/",
+						//url: "http://google.com",
+						description: "Start and stop the queue from discord!",
+						fields: [{
+								name: "Position",
+								value: `You are in position **${queueData.place}**.`
+							},
+							{
+								name: "ETA",
+								value: `Estimated time until login: **${queueData.ETA}**`
+							}
+						],
+						timestamp: new Date(),
+						footer: {
+							icon_url: client.user.avatarURL,
+							text: "Author: Surprisejedi"
+						}
+					}
+				});
+				}, 10000);
+			
+			
+	});
+	
+
 client.on('message', msg => {
 
     if (msg.content === 'update') {
@@ -63,7 +101,7 @@ client.on('message', msg => {
                     name: client.user.username,
                     icon_url: client.user.avatarURL
                 },
-                title: "2bored2wait discord bridge",
+                title: "2b2t Queue =/",
                 //url: "http://google.com",
                 description: "Start and stop the queue from discord!",
                 fields: [{
@@ -84,6 +122,7 @@ client.on('message', msg => {
         });
     }
     if (msg.content === "start") {
+		var Started = 'yes';
         var td = D.toLocaleTimeString();
         http.get("http://localhost/start")
         msg.channel.send({
@@ -113,6 +152,7 @@ client.on('message', msg => {
         setTimeout(update, 5 * 1000);
     }
     if (msg.content === "stop") {
+		var Started = 'no';
         http.get("http://localhost/stop")
         setDiscordActivity("Not queueing.")
         msg.channel.send({
