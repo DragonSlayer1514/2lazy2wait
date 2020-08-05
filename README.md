@@ -6,7 +6,7 @@ A discord implementation of the popular proxy to wait out 2b2t.org's way too lon
 # What i did i guesss
 1.constantly send messages every interval of seconds (idk just mute the sevrer if ya hate it)
 
-2.make it ping you when it it almost there (30min ye)
+2.make it ping you when it it almost there (50 in queue ye)
 
 # How to install
 1. Download node.js and install it. On non-windows platforms, you also need npm.
@@ -31,6 +31,7 @@ If you donate enough I'll tell you how to bypass the queue...
 # How to use
 1. Read the code to ensure i'm not stealing your credentials. i'm not, but you shouldn't take my word for it. If you don't know how to read it, downloading stuff off the internet and giving it your password is probably a bad idea anyway.
 2. Run `node discordBot.js` (you might need to run this as administrator/sudo)
+-just a note, it will fail but go into discordbot.js and remove the line var sleep.
 3. Your bot should be online now, in discord it should show up with "Queue stopped."
 4. See below for commands on how to start the queue.
 5. You can access the original 2bored2wait web interface from http://localhost
