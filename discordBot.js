@@ -143,6 +143,7 @@ client.on('message', msg => {
         });
     }
     if (msg.content === "start") {
+        var td = d.toLocaleTimeString();
         http.get("http://localhost/start")
         msg.channel.send({
             embed: {
@@ -157,7 +158,7 @@ client.on('message', msg => {
                     },
                     {
                         name: "Time Started",
-                        value: `Started at **{d.toLocaleTimeString()}**`
+                        value: `Started at ` + d 
                 ],
                 timestamp: new Date(),
                 footer: {
