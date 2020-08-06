@@ -5,7 +5,6 @@ process.chdir("2bored2wait/")
 var http = require("http");
 var queuing = require('./2bored2wait/main.js');
 var auth = require('./auth.json');
-var sleep = require('sleep');
 var Discord = require('discord.js');
 var D = new Date();
 var Started = "no";
@@ -55,9 +54,9 @@ client.on('ready', () => {
     setDiscordActivity("Not queueing.")
 })
 
-//for timed messages auto update
-client.on('ready', () => { 
-	var channel = client.channels.find(channel => channel.id === '740342329973538858');
+
+client.on('ready', () => {
+	var channel = client.channels.find(channel => channel.id === '   ');//put channel id here
 	console.log("we in bois");
 		setInterval(() => {
 			if (Started === "yes"){
@@ -88,9 +87,156 @@ client.on('ready', () => {
 					}
 				})
 			}
-		}, 5000)//time in ms	
+		}, 10000)	
 });
 	
+client.on('ready', () => {
+	var channel = client.channels.find(channel => channel.id === '   ');//put channel id here
+	console.log("we in bois2");
+		setInterval(() => {
+			if (queueData.place === "50"){
+				channel.send("@everyone");
+				channel.send({
+					embed: {
+						color: 3447003,
+						author: {
+							name: client.user.username,
+							icon_url: client.user.avatarURL
+						},
+						title: "2b2t Queue =/",
+						//url: "http://google.com",
+						description: "Start and stop the queue from discord!",
+						fields: [{
+								name: "Position",
+								value: `You are in position **${queueData.place}**.
+										Get Ready`
+							},
+							{
+								name: "ETA",
+								value: `Estimated time until login: **${queueData.ETA}**`
+							}
+						],
+						timestamp: new Date(),
+						footer: {
+							icon_url: client.user.avatarURL,
+							text: "Author: Surprisejedi"
+						}
+					}
+				})
+			}
+		}, 10000)	
+});
+
+client.on('ready', () => {
+	var channel = client.channels.find(channel => channel.id === '   ');//put channel id here
+	console.log("we in bois2");
+		setInterval(() => {
+			if (queueData.place === "25"){
+				channel.send("@everyone");
+				channel.send({
+					embed: {
+						color: 3447003,
+						author: {
+							name: client.user.username,
+							icon_url: client.user.avatarURL
+						},
+						title: "2b2t Queue =/",
+						//url: "http://google.com",
+						description: "Start and stop the queue from discord!",
+						fields: [{
+								name: "Position",
+								value: `You are in position **${queueData.place}**.
+										Get Ready`
+							},
+							{
+								name: "ETA",
+								value: `Estimated time until login: **${queueData.ETA}**`
+							}
+						],
+						timestamp: new Date(),
+						footer: {
+							icon_url: client.user.avatarURL,
+							text: "Author: Surprisejedi"
+						}
+					}
+				})
+			}
+		}, 10000)	
+});
+
+client.on('ready', () => {
+	var channel = client.channels.find(channel => channel.id === '   ');//put channel id here
+	console.log("we in bois2");
+		setInterval(() => {
+			if (queueData.place === "10"){
+				channel.send("@everyone");
+				channel.send({
+					embed: {
+						color: 3447003,
+						author: {
+							name: client.user.username,
+							icon_url: client.user.avatarURL
+						},
+						title: "2b2t Queue =/",
+						//url: "http://google.com",
+						description: "Start and stop the queue from discord!",
+						fields: [{
+								name: "Position",
+								value: `You are in position **${queueData.place}**.
+										Get Ready`
+							},
+							{
+								name: "ETA",
+								value: `Estimated time until login: **${queueData.ETA}**`
+							}
+						],
+						timestamp: new Date(),
+						footer: {
+							icon_url: client.user.avatarURL,
+							text: "Author: Surprisejedi"
+						}
+					}
+				})
+			}
+		}, 10000)	
+});
+
+client.on('ready', () => {
+	var channel = client.channels.find(channel => channel.id === '  ');//put channel id here
+	console.log("we in bois2");
+		setInterval(() => {
+			if (queueData.place === "1"){
+				channel.send("@everyone");
+				channel.send({
+					embed: {
+						color: 3447003,
+						author: {
+							name: client.user.username,
+							icon_url: client.user.avatarURL
+						},
+						title: "2b2t Queue =/",
+						//url: "http://google.com",
+						description: "Start and stop the queue from discord!",
+						fields: [{
+								name: "Position",
+								value: `You are in position **${queueData.place}**.
+										Get Ready`
+							},
+							{
+								name: "ETA",
+								value: `Estimated time until login: **${queueData.ETA}**`
+							}
+						],
+						timestamp: new Date(),
+						footer: {
+							icon_url: client.user.avatarURL,
+							text: "Author: Surprisejedi"
+						}
+					}
+				})
+			}
+		}, 5000)	
+});
 
 client.on('message', msg => {
 
